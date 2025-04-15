@@ -6,6 +6,8 @@ metadata:
   name: spring-backend
   title: Spring Backend
   description: This is a SpringBoot backend app
+  annotations:
+    backstage.io/techdocs-ref: TECH-DOCS.md
   tags:
     - spring
     - java
