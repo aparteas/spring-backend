@@ -4,6 +4,16 @@ apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
   name: spring-backend
+  title: Spring Backend
+  description: This is a SpringBoot backend app
+  tags:
+    - spring
+    - java
+    - rest
+  links:
+    - url: https://dashboard.example.com
+      title: My Dashboard
+      icon: dashboard
 spec:
   type: service
   lifecycle: experimental
@@ -15,6 +25,8 @@ apiVersion: backstage.io/v1alpha1
 kind: API
 metadata:
   name: spring-backend-api
+  annotations:
+    backstage.io/techdocs-entity: component:default/spring-backend
 spec:
   type: openapi
   lifecycle: experimental
