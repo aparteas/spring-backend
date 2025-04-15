@@ -1,41 +1,54 @@
 ---
-# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-system
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-domain
 apiVersion: backstage.io/v1alpha1
-kind: System
+kind: Domain
 metadata:
-  name: examples
+  name: spring-apps
+  title: Spring Applications
+  description: Domain for all Spring applications
+  labels: {
+    "domain": "value1"
+  }
+  tags:
+    - one
+    - two
+  links:
+    - {url: "https://spring.io/projects/spring-boot", title: "Spring Boot", icon: "docs"}
 spec:
-  owner: guests
+  owner: developers
 ---
 # https://backstage.io/docs/features/software-catalog/descriptor-format#kind-component
 apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
-  name: example-website
+  name: spring-backend
 spec:
-  type: website
+  type: service
   lifecycle: experimental
-  owner: guests
-  system: examples
-  providesApis: [example-grpc-api]
+  owner: developers
+  domain: spring-apps
+  providesApis: [spring-backend-api]
 ---
 # https://backstage.io/docs/features/software-catalog/descriptor-format#kind-api
 apiVersion: backstage.io/v1alpha1
 kind: API
 metadata:
-  name: example-grpc-api
+  name: spring-backend-api
 spec:
-  type: grpc
+  type: openapi
   lifecycle: experimental
-  owner: guests
-  system: examples
+  owner: developers
+  domain: spring-apps
   definition: |
-    syntax = "proto3";
-
-    service Exampler {
-      rpc Example (ExampleMessage) returns (ExampleMessage) {};
-    }
-
-    message ExampleMessage {
-      string example = 1;
-    };
+    openapi: "3.0.0"
+    info:
+      version: 1.0.0
+      title: Artist API
+      license:
+        name: MIT
+    servers:
+      - url: http://artist.spotify.net/v1
+    paths:
+      /artists:
+        get:
+          summary: List all artists
