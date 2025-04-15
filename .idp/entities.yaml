@@ -1,22 +1,4 @@
 ---
-# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-domain
-apiVersion: backstage.io/v1alpha1
-kind: Domain
-metadata:
-  name: spring-apps
-  title: Spring Applications
-  description: Domain for all Spring applications
-  labels: {
-    "domain": "value1"
-  }
-  tags:
-    - one
-    - two
-  links:
-    - {url: "https://spring.io/projects/spring-boot", title: "Spring Boot", icon: "docs"}
-spec:
-  owner: developers
----
 # https://backstage.io/docs/features/software-catalog/descriptor-format#kind-component
 apiVersion: backstage.io/v1alpha1
 kind: Component
@@ -26,7 +8,6 @@ spec:
   type: service
   lifecycle: experimental
   owner: developers
-  domain: spring-apps
   providesApis: [spring-backend-api]
 ---
 # https://backstage.io/docs/features/software-catalog/descriptor-format#kind-api
@@ -38,7 +19,6 @@ spec:
   type: openapi
   lifecycle: experimental
   owner: developers
-  domain: spring-apps
   definition: |
     openapi: "3.0.0"
     info:
