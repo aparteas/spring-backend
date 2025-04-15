@@ -1,7 +1,7 @@
 # Read Me First
 The following was discovered as part of building this project:
 
-* The original package name 'io.aparte.spring-backend' is invalid and this project uses 'io.aparte.spring_backend' instead.
+* The original package name 'io.aparte.spring-backend' is invalid and this project uses 'io.aparte.spring' instead.
 
 # Getting Started
 
